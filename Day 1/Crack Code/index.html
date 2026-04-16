@@ -1,0 +1,246 @@
+<!DOCTYPE html> <!-- Declares HTML5 document type -->
+<html lang="en"> <!-- Root element with English language -->
+<head>
+    <meta charset="UTF-8"> <!-- Universal character encoding -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Mobile responsive -->
+    <title>Crack Code | DSA Tracker</title> <!-- Browser tab title shows app name -->
+    
+    <!-- External CSS link -->
+    <link rel="stylesheet" href="styles.css"> <!-- Stylesheet for design -->
+    
+    <!-- Font Awesome for icons (used for avatar, toggle, nav icons) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+
+    <!-- ==================== LOGIN MODAL (POPUP) ==================== -->
+    <!-- This modal appears on page load to ask for user's name -->
+    <div id="login-modal" class="modal"> <!-- Overlay container -->
+        <div class="modal-content"> <!-- Modal box -->
+            <h2>👋 Welcome to Crack Code</h2> <!-- App name displayed -->
+            <p>Enter your name to start tracking your DSA progress.</p>
+            <!-- Simple form with input and button -->
+            <form id="modal-login-form"> <!-- Form to prevent page refresh -->
+                <input type="text" id="modal-name-input" placeholder="Your name" required autofocus> <!-- Input field -->
+                <button type="submit" id="modal-login-btn">Let's Go →</button> <!-- Submit button -->
+            </form>
+        </div>
+    </div>
+
+    <!-- ==================== MAIN APP CONTAINER ==================== -->
+    <div class="app-container"> <!-- Flex container for sidebar + main content -->
+        
+        <!-- ==================== SIDEBAR (COLLAPSIBLE) ==================== -->
+        <!-- The class "collapsed" will be toggled via JavaScript to shrink sidebar -->
+        <aside id="sidebar" class="sidebar"> <!-- Semantic aside element -->
+            
+            <!-- Sidebar Header with App Name and Toggle Button -->
+            <div class="sidebar-header"> <!-- Flex row for title and toggle icon -->
+                <h2 class="app-title"><span>⚡ Crack Code</span></h2> <!-- App name wrapped in span for hiding -->
+                <!-- Toggle button (hamburger) to collapse/expand sidebar -->
+                <button id="sidebar-toggle" class="toggle-btn"> <!-- Button with icon -->
+                    <i class="fas fa-bars"></i> <!-- Hamburger icon -->
+                </button>
+            </div>
+            
+            <!-- Profile Section (shows welcome message, no form) -->
+            <div class="profile-section"> <!-- Contains avatar and welcome text -->
+                <div class="avatar"> <!-- Icon circle -->
+                    <i class="fas fa-user-circle"></i> <!-- User avatar icon -->
+                </div>
+                <!-- Welcome message dynamically updated from modal login -->
+                <h3 id="welcome-message"><span>Welcome, User!</span></h3> <!-- Text wrapped in span -->
+                <p class="college-tag"><span>Sapthagiri College</span></p> <!-- Static text wrapped in span -->
+            </div>
+            
+            <!-- Navigation Links -->
+            <nav class="sidebar-nav"> <!-- Navigation container -->
+                <ul> <!-- Unordered list -->
+                    <!-- Each link now has an <i> for icon and a <span> for text -->
+                    <li>
+                        <a href="#" class="nav-link active" data-section="dashboard">
+                            <i class="fas fa-chart-pie"></i> <!-- Dashboard icon -->
+                            <span>Dashboard</span> <!-- Text that will hide on collapse -->
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="nav-link" data-section="arrays">
+                            <i class="fas fa-layer-group"></i> <!-- Arrays icon -->
+                            <span>Arrays & Hashing</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="nav-link" data-section="linkedlist">
+                            <i class="fas fa-link"></i> <!-- Linked List icon -->
+                            <span>Linked List</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="nav-link" data-section="trees">
+                            <i class="fas fa-tree"></i> <!-- Trees icon -->
+                            <span>Trees</span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+            
+            <!-- Dark Mode Toggle Button -->
+            <button id="theme-toggle" class="theme-btn">
+                <i class="fas fa-moon"></i> <!-- Moon icon -->
+                <span>Dark Mode</span> <!-- Text that will hide on collapse -->
+            </button>
+        </aside>
+        
+        <!-- ==================== MAIN CONTENT AREA ==================== -->
+        <main class="main-content"> <!-- Right side content -->
+            
+            <!-- DASHBOARD SECTION (visible by default) -->
+            <section id="dashboard-section" class="content-section active-section">
+                <h1>📈 Your Progress Dashboard</h1>
+                
+                <!-- Stats Cards Grid -->
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <h3>Total Topics</h3>
+                        <span id="total-topics" class="stat-number">9</span> <!-- Updated by JS -->
+                    </div>
+                    <div class="stat-card">
+                        <h3>Completed</h3>
+                        <span id="completed-count" class="stat-number">0</span> <!-- Updated by JS -->
+                    </div>
+                    <div class="stat-card">
+                        <h3>Streak</h3>
+                        <span class="stat-number">7 Days 🔥</span> <!-- Static example -->
+                    </div>
+                </div>
+                
+                <h2>🎯 Recommended Practice</h2>
+                <!-- Simple table for quick links -->
+                <table class="problem-table">
+                    <thead>
+                        <tr><th>Problem</th><th>Source</th><th>Action</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Two Sum</td>
+                            <td><span class="source-badge leetcode">LeetCode</span></td>
+                            <!-- Actual link to LeetCode Two Sum -->
+                            <td><a href="https://leetcode.com/problems/two-sum/" target="_blank" class="btn-sm">Solve</a></td>
+                        </tr>
+                        <tr>
+                            <td>Reverse Linked List</td>
+                            <td><span class="source-badge gfg">GFG</span></td>
+                            <!-- Actual link to GFG Reverse Linked List -->
+                            <td><a href="https://www.geeksforgeeks.org/reverse-a-linked-list/" target="_blank" class="btn-sm">Solve</a></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+            
+            <!-- ARRAYS SECTION -->
+            <section id="arrays-section" class="content-section">
+                <h1>📚 Arrays & Hashing</h1>
+                <div class="topic-list" id="arrays-topic-list">
+                    <!-- Topic Item 1 -->
+                    <div class="topic-item">
+                        <div class="topic-info">
+                            <input type="checkbox" class="topic-checkbox" id="arr-1" data-key="arr1">
+                            <label for="arr-1"><strong>Contains Duplicate</strong></label>
+                        </div>
+                        <div class="topic-links">
+                            <a href="https://leetcode.com/problems/contains-duplicate/" target="_blank" class="source-badge leetcode">LeetCode</a>
+                            <a href="https://www.geeksforgeeks.org/check-if-a-given-array-contains-duplicate-elements-within-k-distance-from-each-other/" target="_blank" class="source-badge gfg">GFG</a>
+                            <a href="https://www.codingninjas.com/studio/problems/duplicate-in-array_893397" target="_blank" class="source-badge cn">CN</a>
+                        </div>
+                    </div>
+                    <!-- Topic Item 2 -->
+                    <div class="topic-item">
+                        <div class="topic-info">
+                            <input type="checkbox" class="topic-checkbox" id="arr-2" data-key="arr2">
+                            <label for="arr-2"><strong>Valid Anagram</strong></label>
+                        </div>
+                        <div class="topic-links">
+                            <a href="https://leetcode.com/problems/valid-anagram/" target="_blank" class="source-badge leetcode">LeetCode</a>
+                            <a href="https://www.geeksforgeeks.org/check-whether-two-strings-are-anagram-of-each-other/" target="_blank" class="source-badge gfg">GFG</a>
+                            <a href="https://www.codingninjas.com/studio/problems/anagram-pairs_626517" target="_blank" class="source-badge cn">CN</a>
+                        </div>
+                    </div>
+                    <!-- Topic Item 3 -->
+                    <div class="topic-item">
+                        <div class="topic-info">
+                            <input type="checkbox" class="topic-checkbox" id="arr-3" data-key="arr3">
+                            <label for="arr-3"><strong>Two Sum</strong></label>
+                        </div>
+                        <div class="topic-links">
+                            <a href="https://leetcode.com/problems/two-sum/" target="_blank" class="source-badge leetcode">LeetCode</a>
+                            <a href="https://www.geeksforgeeks.org/given-an-array-a-and-a-number-x-check-for-pair-in-a-with-sum-as-x/" target="_blank" class="source-badge gfg">GFG</a>
+                            <a href="https://www.codingninjas.com/studio/problems/pair-sum_697295" target="_blank" class="source-badge cn">CN</a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- LINKED LIST SECTION -->
+            <section id="linkedlist-section" class="content-section">
+                <h1>🔗 Linked List</h1>
+                <div class="topic-list" id="linkedlist-topic-list">
+                    <div class="topic-item">
+                        <div class="topic-info">
+                            <input type="checkbox" class="topic-checkbox" id="ll-1" data-key="ll1">
+                            <label for="ll-1"><strong>Reverse Linked List</strong></label>
+                        </div>
+                        <div class="topic-links">
+                            <a href="https://leetcode.com/problems/reverse-linked-list/" target="_blank" class="source-badge leetcode">LeetCode</a>
+                            <a href="https://www.geeksforgeeks.org/reverse-a-linked-list/" target="_blank" class="source-badge gfg">GFG</a>
+                            <a href="https://www.codingninjas.com/studio/problems/reverse-linked-list_920513" target="_blank" class="source-badge cn">CN</a>
+                        </div>
+                    </div>
+                    <div class="topic-item">
+                        <div class="topic-info">
+                            <input type="checkbox" class="topic-checkbox" id="ll-2" data-key="ll2">
+                            <label for="ll-2"><strong>Merge Two Sorted Lists</strong></label>
+                        </div>
+                        <div class="topic-links">
+                            <a href="https://leetcode.com/problems/merge-two-sorted-lists/" target="_blank" class="source-badge leetcode">LeetCode</a>
+                            <a href="https://www.geeksforgeeks.org/merge-two-sorted-linked-lists/" target="_blank" class="source-badge gfg">GFG</a>
+                            <a href="https://www.codingninjas.com/studio/problems/merge-two-sorted-linked-lists_800332" target="_blank" class="source-badge cn">CN</a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- TREES SECTION -->
+            <section id="trees-section" class="content-section">
+                <h1>🌳 Trees</h1>
+                <div class="topic-list" id="trees-topic-list">
+                    <div class="topic-item">
+                        <div class="topic-info">
+                            <input type="checkbox" class="topic-checkbox" id="tr-1" data-key="tr1">
+                            <label for="tr-1"><strong>Maximum Depth of Binary Tree</strong></label>
+                        </div>
+                        <div class="topic-links">
+                            <a href="https://leetcode.com/problems/maximum-depth-of-binary-tree/" target="_blank" class="source-badge leetcode">LeetCode</a>
+                            <a href="https://www.geeksforgeeks.org/write-a-c-program-to-find-the-maximum-depth-or-height-of-a-tree/" target="_blank" class="source-badge gfg">GFG</a>
+                            <a href="https://www.codingninjas.com/studio/problems/height-of-binary-tree_4609628" target="_blank" class="source-badge cn">CN</a>
+                        </div>
+                    </div>
+                    <div class="topic-item">
+                        <div class="topic-info">
+                            <input type="checkbox" class="topic-checkbox" id="tr-2" data-key="tr2">
+                            <label for="tr-2"><strong>Invert Binary Tree</strong></label>
+                        </div>
+                        <div class="topic-links">
+                            <a href="https://leetcode.com/problems/invert-binary-tree/" target="_blank" class="source-badge leetcode">LeetCode</a>
+                            <a href="https://www.geeksforgeeks.org/write-an-efficient-c-function-to-convert-a-tree-into-its-mirror-tree/" target="_blank" class="source-badge gfg">GFG</a>
+                            <a href="https://www.codingninjas.com/studio/problems/convert-binary-tree-to-mirror-tree_873140" target="_blank" class="source-badge cn">CN</a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+    
+    <!-- External JavaScript -->
+    <script src="script.js"></script>
+</body>
+</html>
