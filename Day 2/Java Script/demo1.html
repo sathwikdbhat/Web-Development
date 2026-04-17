@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript Examples</title>
+</head>
+<body>
+    <h2 id="Welcome">Hello Students!!!</h2>   <!--type h2#Welcome it gives id -->
+    <!--Inline javascript is written inside the html just before the <body> tag closing inside <script> tag-->
+        <script>
+            //Inline scriptz: Because we are inside the same HTML File
+            document.getElementById("Welcome").innerText="Welcome to javascript programming"
+            // Variables [let, var, const]
+            // DTL --> Dynamically Typed Language [Similar to python]
+            let name="Sathwik"; // String
+            let age=21; // Number
+            const PI=3.14; // Constant
+            let isStudent=true; // Boolean
+            console.log("Name, Age, Is Student: "+name+", "+age+", "+isStudent);
+            var x=22; // very old syntax & nowadays we don't use 'var' because of its scoping issues
+            // Operators
+            let a=10, b=20;
+            console.log(a+b); // Arithmetic Operator --> 30
+            console.log(a>b); // Comparison Operator --> false
+            console.log(a>5 && b<30); // Logical Operator --> true
+            // Functions
+            function displayName(name){
+                return "Hello, "+name+"!";
+            }
+            //Function Call
+            console.log(displayName("Sathwik"));
+            // Function to add two numbers
+            function addTwoNumbers(a, b){
+                return a + b;
+            }
+            const result = addTwoNumbers(10, 20);
+            console.log("The sum is: "+result);
+            // Create az function to find the area of circle
+            function areaOfCircle(r){
+                return PI * r * r;
+            }
+            const area = areaOfCircle(5);
+            console.log("The area of the circle is: "+area);
+            
+        </script>
+</body>
+</html>

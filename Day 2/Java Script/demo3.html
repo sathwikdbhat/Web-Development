@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Validation In JavaScript</title>
+</head>
+<body>
+    <form onsubmit="return validateForm()">
+        <input type="text" id="username" placeholder="Enter Your Name" /><br /><br />
+        <input type="email" id="email" placeholder="Enter Your Email"/><br /><br />
+        <button type="submit">SUBMIT</button>
+    </form>
+    <script>
+        function validateForm(){
+            // We are storing the user's input into two variables
+            let name = document.getElementById("username").value;
+            let email = document.getElementById("email").value;
+            // Now we will compare these inputs with empty strings
+            // if no data has been passed, we will give a alert
+            // Otherwise we will return true & form works normally
+            if(name === "" || email === ""){
+                alert("All the fields are Mandatory!");
+                return false; // Don't allow the form to be submitted
+            }
+            return true;  // Let the submission happen normally
+        }
+    </script>
+</body>
+</html>

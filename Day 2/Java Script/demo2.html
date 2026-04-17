@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document Object Model Manipulations using Javascript</title>
+</head>
+<body>
+    <p id="demo">This is the original text</p>
+    <button onclick="changeText()">Click Me</button>
+    <!--Example of button event / EVENTS in JavaScript-->
+    <button id="btn"?>Hover Over Me</button>
+    <script>
+        function changeText(){
+            document.getElementById("demo").innerText="Text changed";
+            document.getElementById("demo").style.color="Red";
+        }
+        document.getElementById("btn").onmouseover=function(){
+            document.getElementById("btn").style.backgroundColor="Yellow";
+        }
+        document.getElementById("btn").onmouseout=function(){
+            alert("You Hovered Over the Button");
+        };
+    </script>
+</body>
+</html>

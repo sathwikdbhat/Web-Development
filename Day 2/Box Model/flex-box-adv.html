@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Flexbox Interactive Demo</title>
+
+    <style>
+        body {
+            font-family: Arial;
+            text-align: center;
+            margin-top: 30px;
+        }
+
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            height: 200px;
+            background-color: #f0f0f0;
+            margin-top: 20px;
+            border: 2px solid #ccc;
+        }
+
+        .box {
+            width: 70px;
+            height: 70px;
+            background-color: #4CAF50;
+            color: white;
+            margin: 5px;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        button {
+            margin: 5px;
+            padding: 8px 12px;
+            cursor: pointer;
+            border: none;
+            background-color: #2196F3;
+            color: white;
+            border-radius: 4px;
+        }
+    </style>
+
+</head>
+<body>
+
+    <h2>Flexbox Interactive Demo 🎮</h2>
+
+    <h4>Justify Content</h4>
+    <button onclick="changeJustify('flex-start')">Start</button>
+    <button onclick="changeJustify('center')">Center</button>
+    <button onclick="changeJustify('space-between')">Between</button>
+    <button onclick="changeJustify('space-around')">Around</button>
+
+    <h4>Align Items</h4>
+    <button onclick="changeAlign('flex-start')">Top</button>
+    <button onclick="changeAlign('center')">Middle</button>
+    <button onclick="changeAlign('flex-end')">Bottom</button>
+
+    <div class="container" id="container">
+        <div class="box">1</div>
+        <div class="box">2</div>
+        <div class="box">3</div>
+    </div>
+
+    <script>
+        function changeJustify(value) {
+            document.getElementById("container").style.justifyContent = value;
+        }
+
+        function changeAlign(value) {
+            document.getElementById("container").style.alignItems = value;
+        }
+    </script>
+
+</body>
+</html>

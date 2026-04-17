@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript Concepts Student Dashboard</title>
+    <style>
+        body{
+            font-family: Arial, Helvetica, sans-serif;
+            background: #f4f6f8;
+            display: flex;
+            justify-content: center;
+            padding-top: 30px;
+            transition: 0.3s;
+        }
+        .container{
+            background: white;
+            padding: 20px;
+            width: 350px;
+            border-radius: 10px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.4);
+            text-align: center;
+        }
+        .dark{
+            background: #121212;
+            color: black;
+        }
+        .dark .container{
+            background: rgb(47, 39, 39);
+            color: #ccc;
+        }
+        h1{
+            margin-bottom: 15px;
+        }
+        button{
+            padding: 6px 12px;
+            margin: 5px;
+            border: none;
+            border-radius: 5px;
+            background: blue;
+            color: white;
+            cursor: pointer;
+        }
+        button:hover{
+            background: rgb(25, 25, 128);
+        }
+        input,textarea{
+            width: 90%;
+            padding: 5px;
+            margin-top: 5px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+        ul{
+            text-align: left;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🚀Dashboard</h1>
+        <!--Buttons-->
+        <button onclick="toggleMode()">⚪⚫Mode</button>
+        <button onclick="changeColor()">🎨Color</button>
+        <!--Clock-->
+        <h2 id="clock"></h2>
+        <hr/>
+        <!--To do list-->
+        <h3>📝 To-Do List</h3>
+        <input id="task"/>
+        <button onclick="addTask()">Add</button>
+        <ul id="list"></ul>
+        <hr>
+        <!--Password-->
+        <h3>🔒Show/Hide Password</h3>
+        <input type="password" id="pass"/>
+        <button onclick="togglePassword()">Show/Hide</button>
+        <hr>
+        <!--Counter for counting number of characters-->
+        <h3>Character Counter</h3>
+        <textarea id="text" oninput="countChars()"></textarea>
+        <p>Count <span id="count">0</span></p>
+    </div>
+    <script>
+        //Dark Mode
+        function toggleMode(){
+            document.body.classList.toggle("dark");
+        }
+        //Random Colour
+        function changeColor(){
+            let colors=["orange","blue","red","white","grey"];
+            let i=Math.floor(Math.random()*colors.length);
+            document.body.style.background=colors[i];
+        }
+        //Clock⏰
+        function showTime(){
+            let now=new Date();
+            document.getElementById("clock").innerText=now.toLocaleString();
+        }
+        setInterval(showTime,1000);
+        //To do list
+        function addTask(){
+            let task=document.getElementById("task").value;
+            let li=document.createElement("li");
+            li.innerText=task; //Wash clothes
+            document.getElementById("list").appendChild(li);
+        }
+        //🔒Password Toggle Show/Hide
+        function togglePassword(){
+            let p=document.getElementById("pass");
+            p.type=p.type==="password" ? "text" : "password";
+        }
+        //Character Counter
+        //By using text.length property
+        function countChars(){
+            let text=document.getElementById("text").value;
+            document.getElementById("count").innerText=text.length;
+        }
+    </script>
+</body>
+</html>
