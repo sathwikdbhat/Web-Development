@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create List Items Using JS</title>
+</head>
+<body>
+    <input id="text"/>
+    <button onclick="addItem()">Add</button>
+    <ul id="list"></ul>
+    <script>
+        function addItem(){
+            let value=document.getElementById("text").value;
+            let li=document.createElement("li");
+            li.innerText=value;
+            document.getElementById("list").appendChild(li);
+        }
+    </script>
+</body>
+</html>
