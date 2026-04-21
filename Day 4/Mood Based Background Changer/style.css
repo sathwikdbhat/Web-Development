@@ -1,0 +1,31 @@
+body{
+    height: 100vh;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: sans-serif;
+    background: #f0f2f5; 
+    transition: all 0.6s ease; /*Make the changes/animation smooth*/
+}
+.card{
+    background: white;
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);  /* Soft shadow */
+    text-align: center;
+    color:black;
+}
+button{
+    padding:12px 20px;
+    font-size: 16px;
+    cursor:pointer;
+    border:none;
+    border-radius: 50px;
+    background: lightsilategray;
+    transition: 0.3s; /* Smooth transition for hover effect */
+}
+button:hover{
+    transform:translateY(-10px);
+    background: gray;
+}

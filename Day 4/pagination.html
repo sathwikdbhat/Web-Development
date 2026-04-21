@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pagination Demo in html using JavaScript</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container mt-5">
+        <h2 class="text-center">Student List</h2>
+        <h5 class="text-center" id="pageNumber"></h5>
+        <table class="table table-bordered text-center mt-3">
+            <thead class="table-dark">
+                <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                </tr>
+            </thead>
+            <tbody id="tableBody"></tbody>
+        </table>
+        <div class="text-center">
+            <button class="btn btn-primary" onclick="previousPage()">Previous</button>
+            <button class="btn btn-success" onclick="nextPage()">Next</button>
+        </div>
+    </div>
+    <script>
+        let data=[
+            {id:1,name:"Sidharth"},
+            {id:2,name:"Priyanshu"},
+            {id:3,name:"Shreeharsha"},
+            {id:4,name:"Shreyas"},
+            {id:5,name:"Ramith"},
+            {id:6,name:"Shalu Kumari"},
+            {id:7,name:"Simmi Roy"},
+            {id:8,name:"Srushti"},
+            {id:9,name:"Anupriya"},
+            {id:10,name:"Shahista"},
+        ];
+        let currentPage=1;
+        let rowsparPage=3;
+
+        function displayTable(){
+            let tableBody=document.getElementById("tableBody");
+            tableBody.innerHTML="";
+            let start=(currentPage-1)*rowsparPage;
+            for(let i=start;i<start+rowsparPage;i++){
+                if(i>=data.length) break;
+                tableBody.innerHTML+="<tr><td>"+data[i].id+"</td><td>"+data[i].name+"</td></tr>";
+            }
+            //Update the page number
+            document.getElementById("pageNumber").innerText="Page"+currentPage;
+        }
+        //Next button
+        function nextPage(){
+            if(currentPage*rowsparPage<data.length){
+                currentPage++;
+            }
+            displayTable();
+        }
+        //Previous button
+        function previousPage(){
+            currentPage--;
+            if(currentPage<1){
+                currentPage=1;
+            }
+            displayTable();
+        }
+        //Load the table when the browser starts
+        displayTable();
+    </script>
+</body>
+</html>

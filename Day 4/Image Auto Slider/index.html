@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Slider Demo  |  JavaScript</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="slider"> <!-- Main Slider Box -->
+        <div class="slides"> <!-- Image Container -->
+            <img src="https://picsum.photos/id/1051/800/500" class="slide active"/>
+            <img src="https://picsum.photos/id/1052/800/500" class="slide" />
+            <img src="https://picsum.photos/id/1053/800/500" class="slide" />
+            <img src="https://picsum.photos/id/1054/800/500" class="slide" />
+            <img src="https://picsum.photos/id/1055/800/500" class="slide" />
+        </div>
+        <div class="controls"> <!-- Control Button Rows -->
+            <button onclick="prevSlide()">⏮️ Prev</button>
+            <button onclick="nextSlide()">⏭️ Next</button>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
